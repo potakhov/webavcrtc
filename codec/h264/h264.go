@@ -7,8 +7,8 @@ import (
 	"math"
 	"sort"
 
-	"github.com/potakhov/webavcrtc/utils/bits"
-	"github.com/potakhov/webavcrtc/utils/bits/pio"
+	"github.com/potakhov/webavcrtc/bits"
+	"github.com/potakhov/webavcrtc/bits/pio"
 )
 
 const (

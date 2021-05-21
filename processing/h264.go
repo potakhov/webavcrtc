@@ -18,7 +18,7 @@ type H264RTPDepacketizer struct {
 	jitter        *RTPJitter
 }
 
-func NewDepacketizer() *H264RTPDepacketizer {
+func NewH264Depacketizer() *H264RTPDepacketizer {
 	return &H264RTPDepacketizer{
 		frame:         make([]byte, 0),
 		h264Unmarshal: &codecs.H264Packet{},

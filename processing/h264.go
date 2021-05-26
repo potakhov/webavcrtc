@@ -1,8 +1,6 @@
 package processing
 
 import (
-	"log"
-
 	"github.com/pion/rtp"
 	"github.com/pion/rtp/codecs"
 	"github.com/potakhov/webavcrtc/codec/h264"
@@ -36,34 +34,34 @@ func parseConvertNALu(frame []byte) ([]byte, bool) {
 	nalus_ := make([][]byte, 0)
 	keyframe := false
 
-	var stmp string
+	//var stmp string
 	for _, nalu := range nalus {
 
 		switch h264.NALUType(nalu) {
 		case h264.NALU_SPS:
 			nalus_ = append(nalus_, nalu)
-			stmp += "SPS "
+			//stmp += "SPS "
 		case h264.NALU_PPS:
 			nalus_ = append(nalus_, nalu)
-			stmp += "PPS "
+			//stmp += "PPS "
 		case h264.NALU_IDR:
 			nalus_ = append(nalus_, nalu)
 			keyframe = true
-			stmp += "IDR "
+			//stmp += "IDR "
 		case h264.NALU_NONIDR:
 			nalus_ = append(nalus_, nalu)
 			keyframe = false
-			stmp += "NONIDR "
+			//stmp += "NONIDR "
 		case h264.NALU_SEI:
-			stmp += "SEI "
+			//stmp += "SEI "
 			continue
 		default:
-			stmp += "UNK "
+			//stmp += "UNK "
 			continue
 		}
 	}
 
-	log.Printf("Detected NALs: %s", stmp)
+	//log.Printf("Detected NALs: %s", stmp)
 
 	if len(nalus_) == 0 {
 		return nil, false
